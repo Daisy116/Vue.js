@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="lab">
+        <p v-on:click="displayTime">{{currentTime}}</p>
+        <input type="text" v-model="currentTime" style="width:100%">
+    </div>
+
+    <script>
+    var app = new Vue({
+        el: "#lab",
+        data: {
+            currentTime: Date()
+        },
+        methods: {
+            displayTime: function() {
+                this.currentTime = Date();
+            }
+        }
+    })
+    </script>
+</body>
+</html>
