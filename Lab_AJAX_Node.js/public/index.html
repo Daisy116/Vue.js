@@ -91,22 +91,23 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="firstNameTextBox">FirstName:</label>
                         <div class="col-md-4">
-                            <input name="firstNameTextBox" id="firstNameTextBox" type="text" class="form-control input-md">
+                            <input name="firstNameTextBox" v-model="FirstName" id="firstNameTextBox" type="text" class="form-control input-md">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="lastNameTextBox">LastName:</label>
                         <div class="col-md-4">
-                            <input name="lastNameTextBox" id="lastNameTextBox" type="text" class="form-control input-md">
+                            <input name="lastNameTextBox" v-model="LastName" id="lastNameTextBox" type="text" class="form-control input-md">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="button1id"></label>
                         <div class="col-md-8">
-                            <button type="button" id="postButton" name="postButton" class="btn btn-success">
+                            <button type="button" v-on:click="postClick"
+                            id="postButton" name="postButton" class="btn btn-success">
                                 Hello -- $.post(), $.ajax()</button> &nbsp;
-                            <span id='resultSpan'></span>
+                            <span id='resultSpan'>{{FullName}}</span>
                         </div>
                     </div>
                 </form>
@@ -123,7 +124,7 @@
     <script type='text/javascript' src='js/ajax_concept.js'></script>
 
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
             $(".nav-tabs a").click(function() {
                 $(this).tab('show');
             });
@@ -163,29 +164,55 @@
         }, 1000);
 
 
-            $("#postButton").on("click", function() {
-                var dataToServer = {
-                    firstName: $("#firstNameTextBox").val(),
-                    lastName: $("#lastNameTextBox").val()
+        // $("#postButton").on("click", function() {
+        //     var dataToServer = {
+        //         firstName: $("#firstNameTextBox").val(),
+        //         lastName: $("#lastNameTextBox").val()
+        //     }
+
+        //     $.ajax({
+        //         type: "post",
+        //         url: "/test",
+        //         contentType: "application/json",
+        //         data: JSON.stringify(dataToServer)
+        //     }).then(function (e) {
+        //         $("#resultSpan").text(e);
+        //     })
+
+
+        //     // $("#resultSpan").text(JSON.stringify(dataToServer));
+        // })
+
+        var appPost = new Vue({
+            el: "#postTab",
+            data: {
+                FirstName: "",
+                LastName: "",
+                FullName: ""
+            },
+            methods: {
+                postClick: function () {
+                    var dataToServer = {
+                        FirstName: this.FirstName,
+                        LastName: this.LastName
+                    }
+                    var post_this = this;
+                    $.ajax({
+                        type: "post",
+                        url: "/test",
+                        data: dataToServer
+                        // contentType: "application/json",
+                        // data: JSON.stringify(dataToServer)
+                    }).then(function (e) {
+                        post_this.FullName = e;
+                    })
+                    // this.FullName = JSON.stringify(dataToServer);
                 }
-
-                $.ajax({
-                    type: "post",
-                    url: "/test",
-                    contentType: "application/json",
-                    data: JSON.stringify(dataToServer)
-                }).then(function (e) {
-                    $("#resultSpan").text(e);
-                })
+            }
+        })
 
 
-                // $("#resultSpan").text(JSON.stringify(dataToServer));
-            })
-
-
-
-
-        });
+    });
     </script>
 
 </body>

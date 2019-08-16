@@ -132,7 +132,9 @@ node app.js
 5.1	閱讀 https://www.w3schools.com/jquery/ajax_ajax.asp
 	有關於 $.ajax() 的使用說明。
 
-    $.ajax({   //  用什麼方式(type)、朝什麼地方(url)、丟什麼類型的資料(contentType)、資料內容(data)
+    $.ajax({   
+        //  用什麼方式(type)、朝什麼地方(url)、丟什麼類型的資料(contentType)、資料內容(data)
+        //  contentType和data格式要一致!!
         type: "post",   // 還有 get,put,delete
         url: "http://localhost/test",
         contentType: "application/json",
