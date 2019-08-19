@@ -19,8 +19,8 @@
     Vue.component('count-button', {
         data: function () {
             return {
-                count: 0
-            }
+                count: 0    // 設定count這個資料，並給初值 = 0，且資料是內部可用的
+            }               // props只能設定資料變數，沒辦法給值，只能從外界給值
         },
         template: `
         <button v-on:click="count++"> 點按次數: {{count}} </button>

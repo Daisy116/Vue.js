@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="lab">
-        <count-button v-bind:init-count="20"></count-button>
+        <count-button v-bind:init-count="20"></count-button>  <!-- init-count和initCount是一對的(同樣的變數) -->
         <br>
         <count-button v-bind:init-count="30"></count-button>
     </div>
@@ -17,7 +17,8 @@
 <script>
 
     Vue.component('count-button', {
-        props: ['initCount'],
+        props: ['initCount'],    // initCount，寫成v-bind:時，大寫C之前要用-隔開，而且C變c小寫。
+        // props的變數名不可以寫成init-count，因為會以為-是減號(兩個數相減)
         data: function () {
             return {
                 count: this.initCount

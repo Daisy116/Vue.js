@@ -1,0 +1,42 @@
+<!-- 練習Component -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+    <ol id="app">
+        <todo-item v-for="item in todoList" v-bind:todo="item"></todo-item>
+    </ol>
+
+<script>
+    Vue.component("todo-item", {
+        props: {    // props定義使用樣板(template)要呼叫的變數??
+            todo: ""
+        },
+        template: `
+            <li>
+                {{todo.text}}
+            <li>
+        `
+    });
+    var app = new Vue({
+        el: "#app",
+        data: {
+            todoList: [
+                {id: 1, text: "Job A"},
+                {id: 2, text: "Job B"},
+                {id: 3, text: "Job C"}
+            ]
+        }
+    })
+
+</script>
+
+</body>
+</html>

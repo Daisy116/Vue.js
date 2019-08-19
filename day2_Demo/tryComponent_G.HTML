@@ -10,9 +10,9 @@
 <body>
     <div id="lab">
         總次數: {{totalCount}} <br>
-        <count-button v-bind:init-count="20" v-on:cclick="totalCount++"></count-button>
+        <count-button v-bind:init-count="15" v-on:cclick="totalCount++"></count-button>
         <br>
-        <count-button v-bind:init-count="30" v-on:cclick="totalCount++"></count-button>
+        <count-button v-bind:init-count="3" v-on:cclick="totalCount++"></count-button>
     </div>
 
 <script>
@@ -25,14 +25,14 @@
             }
         },
         template: `
-            <button v-on:click="doClick(); $emit('cclick')"> 
+            <button v-on:click="doClick(); $emit('cclick');"> 
                 點按次數: {{count}} 
             </button>
-        `,
+        `,      // 用$emit製造事件
         methods: {
             doClick: function () {
                 this.count++;
-                
+                // this.$emit('cclick');    // 28和35行二擇一
             }
         }
     })
@@ -40,7 +40,7 @@
     var labApp = new Vue({
         el: '#lab',
         data: {
-            totalCount: 50
+            totalCount: 18
         }
     })
 

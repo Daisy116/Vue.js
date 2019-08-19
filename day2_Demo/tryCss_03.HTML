@@ -26,11 +26,11 @@ var app = new Vue({
     el: "#app",
     data: {
         message: "Hello!",
-        isBlueStyle: true,
+        isBlueStyle: true,    // 用true、false值控制是否有套用
         isItalicStyle: true
     }
 })
-
+app.isBlueStyle = false;
 </script>
 
 </body>
