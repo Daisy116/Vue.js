@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div id="app" v-bind:style="{ fontSize: fontSizeSetting + 'px' }">
+    <div id="app" v-bind:style="{ fontSize: fontSizeSetting + 'px' }">   <!-- 用 + 'px'來設定單位 -->
         Font size: {{ fontSizeSetting }}
         <button v-on:click="fontSizeSetting++">
             Increase font size

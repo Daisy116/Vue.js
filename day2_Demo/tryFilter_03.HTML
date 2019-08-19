@@ -14,6 +14,7 @@
     </div>
 
 <script>
+    // 不是定義在new Vue中，而是定義在外頭，用Vue.filter({})!!
     Vue.filter('dateFormatFilter', function (value, formatStr) {
         return value.format(formatStr);
     });

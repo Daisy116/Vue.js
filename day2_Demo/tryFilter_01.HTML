@@ -6,22 +6,28 @@
     <title>Lab</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- http://blog.stevenlevithan.com/archives/date-time-format -->
-    <script src="date.format.js"></script>
+    <script src="date.format.js"></script>  <!-- 有引用date.format.js!! -->
 </head>
 <body>
-    <div id="lab">
-        日期: {{ dateData | dateFormatFilter }}
-    </div>
+    <div id="lab">   <!-- dateFormatFilter做格式化的處理 -->
+        日期: {{ dateData | dateFormatFilter }}   <br>
+        user Name: {{ userName | ToUpperFilter("U") }}
+    </div>        <!-- ToUpperFilter("U")，括號中可以傳參數 -->
 
 <script>
     var labApp = new Vue({
         el: "#lab",
         data: {
-            dateData: new Date()
+            dateData: new Date(),
+            userName: "asdfg"
         },
         filters: {
             dateFormatFilter: function (value) {
                 return value.format("yyyy-mm-dd HH:MM:ss");
+            },
+            ToUpperFilter: function (value, option){
+                // return value.toUpperCase();   // 將小寫英文轉成大寫的
+                return (option == "u") ? value.toUpperCase() : value.toLowerCase();
             }
         }
     })

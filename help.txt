@@ -1,6 +1,11 @@
 Vue.js
   https://cn.vuejs.org/v2/guide/
   https://quip.com/N3iKAEDJEVmD
+
+Vue.js 的 Filters 
+  https://ithelp.ithome.com.tw/articles/10191948
+  https://cythilya.github.io/2017/05/23/vue-filter/
+
 jQuery
   http://www.runoob.com/jquery/jquery-ajax-get-post.html
   https://www.w3school.com.cn/jquery/ajax_get.asp
@@ -8,4 +13,5 @@ jQuery
 
 
 
-  homework : vue.js 待辦事項
+  homework : vue.js 待辦事項(todoList)
+  https://ithelp.ithome.com.tw/articles/10207139    ?
