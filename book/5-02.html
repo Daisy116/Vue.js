@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="app" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <counter></counter>
+            </div>
+
+            <div class="col-sm-6">
+                <counter></counter>
+            </div>
+        </div>
+    </div>
+
+    <template id="counterUI">
+        <div class="text-center">
+            <div class="alter alter-primary" role="alert">
+                {{ currentValue }}
+            </div>
+            <button type="button" class="btn btn-success" v-on:click="increase">
+                <i class="fa fa-plus"></i>
+            </button>
+            <button type="button" class="btn btn-danger" v-on:click="decrease">
+                <i class="fa fa-minus"></i>
+            </button>
+        </div>
+    </template>
+</body>
+<script>
+Vue.component('counter',{
+    data: function() {
+        return {
+            currentValue: 0
+        }
+    },
+    methods: {
+        increase() {
+            this.currentValue++
+        },
+        decrease() {
+            this.currentValue--
+        }
+    },
+    template: '#counterUI'
+})
+
+new Vue({
+    el: '#app'
+})
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!-- 關閉button起不了作用阿阿阿 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style type="text/css">
+        body {
+            font-family: Microsoft JhengHei;
+            /* 字體設為微軟正黑體 */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model:value='name'>
+        <button v-on:click='showHello = true'>打招呼</button>
+
+        <hello v-show='showHello' v-bind:named="name"
+                v-on:click='showHello=false'>
+    </div>
+    
+
+    <template id="helloUI">
+        <div>
+            <p>歡迎 {{ named }}的到來!</p>
+            <button v-on:click='$emit("close")'>關閉</button>
+        </div>
+    </template>
+</body>
+<script>
+Vue.component('hello',{
+    props:['named'],
+    template: '#helloUI'
+})
+
+new Vue({
+    el: "#app",
+    data: {
+        name: '',
+        showHello: false
+    }
+})
+</script>
+</html>

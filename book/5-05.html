@@ -1,0 +1,65 @@
+<!-- 書第5-25和5-26的沒做 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <style type="text/css">
+        body {
+            font-family: Microsoft JhengHei;
+            /* 字體設為微軟正黑體 */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <todo v-on:additem='addItem'></todo>
+        <ul>
+            <li v-for='todo in todos' v-on:click='removeItem(todo)'>{{ todo }}</li>
+        </ul>            
+    </div>
+
+    <template id="todoUI">
+        <div>
+            <label>待辦事項</label>
+            <input type="text" v-on:keyup.enter.esc='newItem'>
+            <!-- keyup.enter.esc 按下enter後執行newItem方法 -->
+        </div>
+    </template>
+</body>
+<script>
+Vue.component('todo',{
+    methods: {
+        // 下面這三行看不太懂...
+        newItem($event) {
+            this.$emit("additem", $event.target.value)
+            $event.target.value = ''
+        }    
+    },
+    template: '#todoUI'
+})
+
+new Vue({
+    el: '#app',
+    data: {
+        todos: []
+    },
+    methods: {
+        addItem(value) {
+            this.todos.push(value)
+        },
+        removeItem(item) {
+            let ndx = this.todos.indexOf(item)   // ndx是todos陣列中的位置
+            if (ndx != -1) {
+                this.todos.splice(ndx, 1)   // 用splice刪除todos陣列中的元素
+            }
+        }
+    }
+})
+</script>
+</html>

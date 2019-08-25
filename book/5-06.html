@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: Microsoft JhengHei;
+            /* 字體設為微軟正黑體 */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <my-slot></my-slot>
+        <my-slot>
+            <p>HTML</p>
+            <p>CSS</p>
+        </my-slot>
+
+        <my-slot>
+            <p>JavaScript</p>
+            <p>Bootstrap</p>
+        </my-slot>
+
+        <my-slot>
+            <template>
+                <p>JavaScript2</p>
+                <p>Bootstrap2</p>
+                <p>Vue.js</p>
+            </template>
+        </my-slot>
+    </div>
+</body>
+<script>
+Vue.component('my-slot',{
+    template: `
+        <h4>
+            <slot>預設值</slot>
+            <hr />
+        </h4>
+    `
+})
+
+new Vue({
+    el: '#app'
+})
+</script>
+</html>
