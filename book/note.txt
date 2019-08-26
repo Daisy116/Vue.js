@@ -1,17 +1,26 @@
 引用Vue要加上 : 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+----------------------------------------------------------------------------
 使用bootstap的功能，要加上 :
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 例如 : <button type="button" class="btn btn-success"> 或 btn btn-danger
 例如2 : <div class="container"><div class="row">...
+
 做網頁排版，看  https://www.wfublog.com/2017/08/bootstrap-webpage-layout-practice.html
                 https://ithelp.ithome.com.tw/articles/10208853
+
 bootstrap的Modal :
 https://getbootstrap.com/docs/4.0/components/modal/#live-demo
 
+input-group(bootsrap輸入框架) :
+http://www.runoob.com/try/try.php?filename=bootstrap3-inputgroup
+http://www.runoob.com/bootstrap/bootstrap-input-groups.html
 
+使用bootstrap4 的container，引用 :
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+https://getbootstrap.com/docs/4.0/getting-started/introduction/
 
+-----------------------------------------------------------------------------
 以下是Font Awesome的用法 : 
 加上 :
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,13 +31,8 @@ https://getbootstrap.com/docs/4.0/components/modal/#live-demo
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <i class="far fa-smile-beam"></i>
 網址 : https://www.w3schools.com/icons/fontawesome5_icons_emoji.asp
-
-
-
+-----------------------------------------------------------------------------
 做css樣式 :
 <style type="text/css">
 參考 : https://www.w3school.com.cn/tags/tag_style.asp
 
-input-group(bootsrap輸入框架) :
-http://www.runoob.com/try/try.php?filename=bootstrap3-inputgroup
-http://www.runoob.com/bootstrap/bootstrap-input-groups.html
