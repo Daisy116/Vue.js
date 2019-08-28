@@ -11,6 +11,10 @@
 
 bootstrap的Modal :
 https://getbootstrap.com/docs/4.0/components/modal/#live-demo
+要使用modal，加這三行!!
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 input-group(bootsrap輸入框架) :
 http://www.runoob.com/try/try.php?filename=bootstrap3-inputgroup
